@@ -17,10 +17,11 @@ async function query(filterBy) {
             byUserId : userId,
         }
         console.log("🚀 ~ file: order.service.js:19 ~ query ~ userId", userId)
-            console.log("🚀 ~ file: order.service.js:19 ~ query ~ criteria", criteria)
+            console.log("🚀 ~ file: order.service.js:19 ~ query ~ criteria", criteria.byUserId)
         const collection = await dbService.getCollection('order')
+      
         var orders = await collection.find(criteria).toArray()
-        // console.log("🚀 ~ file: order.service.js:21 ~ query ~ orders", orders)
+        console.log("🚀 ~ file: order.service.js:21 ~ query ~ orders", orders)
         return orders
     } catch (err) {
         logger.error('cannot find orders', err)
